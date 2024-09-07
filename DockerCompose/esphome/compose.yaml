@@ -1,0 +1,25 @@
+services:
+  esphome:
+    container_name: esphome
+    image: esphome/esphome:latest
+    restart: always
+    privileged: true
+    # devices:
+    #   - /dev/ttyUSB0:/dev/ttyUSB0
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Lisbon
+      - ESPHOME_DASHBOARD_USE_PING=true
+    network_mode: host
+    #ports:
+    #  - 6052:6052
+    #  - 6123:6123
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/config
+    networks:
+      proxy:
+networks:
+  proxy:
+    external: true
