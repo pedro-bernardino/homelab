@@ -4,7 +4,7 @@ I use a [raspbery py 3 b+](https://www.raspberrypi.com/products/raspberry-pi-3-m
 
 Configuration of the NUT server can be found [here](/NUT%20Configs/Server/README.md).
 
-I wrote a python [script](/NUT%20Configs/Server/etherwake%20script/README.md) to manage the Wake-on-LAN (WOL) of the Server 1 (Proxmox) and Server 2 (Truenas) based in the UPS battery charging percentage.
+I wrote a python [script](Server/etherwakeScript/wol.py) to manage the Wake-on-LAN (WOL) of the Server 1 (Proxmox) and Server 2 (Truenas) based in the UPS battery charging percentage.
 
 ## My setup works like this
 
