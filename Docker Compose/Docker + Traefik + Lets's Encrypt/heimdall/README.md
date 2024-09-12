@@ -8,9 +8,9 @@ As the name suggests Heimdall Application Dashboard is a dashboard for all your 
   + ```mkdir heimdall⁠```
 + Open heimdall⁠ folder
   + ```cd heimdall⁠```
-+ Copy [deploy_heimdall⁠.sh](deploy_heimdall⁠.sh) to your heimdall⁠ folder
-+ Edit [deploy_heimdall⁠.sh](deploy_heimdall⁠.sh) and change the values with your info
-+ Make [deploy_heimdall⁠.sh](deploy_heimdall⁠.sh) executable
++ Copy [deploy_heimdall⁠.sh](deploy_heimdall.sh) to your heimdall⁠ folder
++ Edit [deploy_heimdall⁠.sh](deploy_heimdall.sh) and change the values with your info
++ Make [deploy_heimdall⁠.sh](deploy_heimdall.sh) executable
   + ```sudo chmod +x deploy_heimdall⁠.sh```
 + Run the script to deploy heimdall⁠
   + ```./deploy_heimdall⁠.sh```
