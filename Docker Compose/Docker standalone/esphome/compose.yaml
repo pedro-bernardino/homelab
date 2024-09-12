@@ -18,8 +18,3 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config
-    networks:
-      proxy:
-networks:
-  proxy:
-    external: true

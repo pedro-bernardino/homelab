@@ -19,8 +19,6 @@ services:
       - db_user
       - db_pass
       - db_token
-    networks:
-      proxy:
 
   scrutiny:
     image: ghcr.io/analogj/scrutiny:master-web
@@ -43,12 +41,6 @@ services:
       - telegram_token
     depends_on:
       - influxdb
-    networks:
-      proxy:
-      
-networks:
-  proxy:
-    external: true
 
 secrets:
   db_user:

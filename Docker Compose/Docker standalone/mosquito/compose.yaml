@@ -14,8 +14,3 @@ services:
       - ./config:/mosquitto/config:rw
       - ./data:/mosquitto/data:rw
       - ./log:/mosquitto/log:rw
-    networks:
-      proxy:
-networks:
-  proxy:
-    external: true

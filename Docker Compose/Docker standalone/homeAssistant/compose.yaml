@@ -13,8 +13,3 @@ services:
       - /home/pb/dockerData/homeAssistant/config:/config
     privileged: true
     #network_mode: host
-    networks:
-      proxy:
-networks:
-  proxy:
-    external: true

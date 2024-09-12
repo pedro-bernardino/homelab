@@ -13,8 +13,3 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/etc/motioneye
       - ./lib:/var/lib/motioneye
-    networks:
-      proxy:
-networks:
-  proxy:
-    external: true

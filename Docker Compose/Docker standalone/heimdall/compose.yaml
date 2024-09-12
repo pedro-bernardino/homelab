@@ -12,8 +12,3 @@ services:
     ports:
       - 8088:80
       - 4433:443
-    networks:
-      proxy:
-networks:
-  proxy:
-    external: true
