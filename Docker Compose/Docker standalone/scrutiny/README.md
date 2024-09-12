@@ -13,9 +13,9 @@ Features:
 + (Future) Hard Drive performance testing & tracking
 
 # Usage
-+ Copy the [secrets](/DockerCompose/scrutiny/secrets) folder to your docker server
++ Copy the [secrets](secrets) folder to your docker server
   + edit the files with your info and remove the ".template" 
-+ Copy the [compose.yaml](/DockerCompose/scrutiny/compose.yaml) to your docker server (change port if needed)
++ Copy the [compose.yaml](compose.yaml) to your docker server (change port if needed)
   + run the command (inside the **compose.yaml** folder):
     + ***sudo docker compose up -d***
 
@@ -25,4 +25,4 @@ I use Telegram for notifications. Read the strutiny [documentation](https://gith
 ## Disks data
 I use this container to monitor all my disk (HDDs and SSDs) on all my machines: Proxmox and Truenas.
 
-To accomplish that, i run a data "collector" on each server that sends the data to the container. Instructions can be found [here](/ScrutinyCollector/README.md).
+To accomplish that, i run a data "collector" on each server that sends the data to the container. Instructions can be found [here](/Proxmox/ScrutinyCollector/README.md).
