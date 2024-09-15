@@ -16,10 +16,10 @@ echo "creating .env"
 if [ ! -e ".env" ]
 then
     echo "DOMAIN='$DOMAIN'" > .env
-    echo "MYSQL_DATABASE=$(tr -dc A-Za-z </dev/urandom | head -c 6; echo)" >> .env  # this generate a string
-    echo "MYSQL_USER=$(tr -dc A-Za-z </dev/urandom | head -c 6; echo)" >> .env      # this generate a string
-    echo "MYSQL_ROOT_PASSWORD=$(openssl rand -base64 60 | tr -d '\n')" >> .env      # this generate a big password
-    echo "MYSQL_PASSWORD=$(openssl rand -base64 60 | tr -d '\n')" >> .env           # this generate a big password
+    echo "MYSQL_DATABASE=$(tr -dc A-Za-z </dev/urandom | head -c 6; echo)" >> .env
+    echo "MYSQL_USER=$(tr -dc A-Za-z </dev/urandom | head -c 6; echo)" >> .env
+    echo "MYSQL_ROOT_PASSWORD=$(openssl rand -base64 60 | tr -d '\n')" >> .env
+    echo "MYSQL_PASSWORD=$(openssl rand -base64 60 | tr -d '\n')" >> .env
 else
     echo ".env file exist. skipping..."
 fi

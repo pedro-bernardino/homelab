@@ -62,6 +62,7 @@ api:
   dashboard: $TRAEFIK_DASHBOARD  # Optional can be disabled
   insecure: $TRAEFIK_DASHBOARD   # Optional can be disabled
   debug: $TRAEFIK_DEBUG     # Optional can be Enabled if needed for troubleshooting 
+
 entryPoints:
   http:
     address: ":80"
@@ -72,10 +73,17 @@ entryPoints:
           scheme: https
   https:
     address: ":443"
+  mqtt:
+    address: ":8883"
+  websock:
+    address: ":8083"
+
 log:
   level: $TRAEFIK_DEBUG_TYPE
+
 serversTransport:
   insecureSkipVerify: true
+
 providers:
   docker:
     endpoint: "unix:///var/run/docker.sock"
@@ -83,6 +91,7 @@ providers:
     network: proxy # Optional; Only use the "proxy" Docker network, even if containers are on multiple networks.
   # file:
   #   filename: /config.yml
+
 certificatesResolvers:
   letsencrypt:
     acme:
@@ -113,10 +122,15 @@ services:
     networks:
       - proxy
     ports:
-      - 80:80
-      - 443:443
-      # - 443:443/tcp # Uncomment if you want HTTP3
-      # - 443:443/udp # Uncomment if you want HTTP3
+      # Traefik Ports
+      - 80:80      #The HTTP port (disabled because using tlschallenge)
+      - 443:443     #The HTTPS port
+      # - 8080:8080   #The Web UI (if enabled by --api.insecure=true)
+
+      # MQTT Ports
+      #- 1883:1883  #The mqtt port (non TLS - disabled)
+      - 8883:8883   #The mqtt TLS port
+      - 8083:8083   #The mqtt websocket port (TLS)
     environment:
       - TZ=Europe/Lisbon
       - DYNU_API_KEY=\${DYNU_API_KEY}

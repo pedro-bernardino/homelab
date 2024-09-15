@@ -1,4 +1,4 @@
-# Docker + traefik + Let's encrypt
+Docker + traefik + Let's encrypt
 
 Here's my collection of bash script to deploy the services i use behind a reverse proxy (Traefik). Simply tweak to your environment and deploy!
 
