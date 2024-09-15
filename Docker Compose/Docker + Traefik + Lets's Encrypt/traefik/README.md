@@ -5,7 +5,7 @@
 > [!WARNING]
 > This script uses the dynamic DNS service provider [dynu](https://www.dynu.com). If you want to use another provider or your own domain, please read the documentation of traefik and change the script accordingly.
 
-> [!INFO]
+> [!IMPORTANT]
 > If you need to deploy mosquitto, traefik need to be configured differently: use the [deploy_traefik_mosquitto_dynu.sh](deploy_traefik_mosquitto_dynu.sh) instead.
 
 + Create a folder for the traefik files 
