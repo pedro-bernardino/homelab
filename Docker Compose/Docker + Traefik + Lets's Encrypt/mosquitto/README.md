@@ -12,8 +12,4 @@
   + ```sudo chmod +x deploy_mosquitto.sh```
 + Run the script to deploy mosquitto
   + ```./deploy_mosquitto.sh```
-+ Add domain to pihole local dns
-  + Domain: https://mosquitto.YOUR-DOMAIN-COM
-  + IP Address: xx.xx.xx.xx (ip of docker server)
-+ Open mosquitto dashboard
-  + https://mosquitto.YOUR-DOMAIN-COM
++ Mosquitto don't have a user interface. Use [MQTT Explorer](https://mqtt-explorer.com) to test the container.
