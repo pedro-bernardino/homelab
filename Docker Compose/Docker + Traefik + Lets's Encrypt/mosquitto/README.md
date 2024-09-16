@@ -13,3 +13,10 @@
 + Run the script to deploy mosquitto
   + ```./deploy_mosquitto.sh```
 + Mosquitto don't have a user interface. Use [MQTT Explorer](https://mqtt-explorer.com) to test the container.
+  + Protocol: ```ws://```
+  + Host: ```mosquitto.YOUR-DOMAIN-COM```
+  + Post: ```8083```
+  + Basepath: ```ws```
+  + Username: ```your-mosquito-user```
+  + Password: ```your-secure-password```
+
