@@ -28,6 +28,13 @@ USE_LETS_ENCRYPT_STAGING=true
 echo "creating data folder"
 mkdir data
 
+#creating .env
+echo "creating .env"
+echo "ACME_PROVIDER='$DNS_PROVIDER'" >> .env
+echo "ACME_EMAIL='$EMAIL'" >> .env
+echo "DOMAIN='$DOMAIN'" >> .env
+echo "DYNU_API_KEY='$DNS_TOKEN'" >> .env
+
 #creating acme.json
 echo "creating acme.json"
 if [ ! -e "data/acme.json" ]
@@ -39,7 +46,11 @@ else
 fi
 
 #creating proxy network
-sudo docker network create proxy
+sudo docker network create \
+  --driver=bridge \
+  --subnet=10.50.10.0/24 \
+  --gateway=10.50.10.254 \
+  proxy
 
 #preparing lets encrypt resolver variable
 if [ $USE_LETS_ENCRYPT_STAGING = 'true' ]; then
@@ -110,8 +121,6 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
-    networks:
-      - proxy
     ports:
       - 80:80
       - 443:443
@@ -139,18 +148,13 @@ services:
       - "traefik.http.routers.traefik-secure.tls.domains[0].main=\${DOMAIN}"
       - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.\${DOMAIN}"
       - "traefik.http.routers.traefik-secure.service=api@internal"
-
+    networks:
+      proxy:
+        ipv4_address: 10.50.10.1
 networks:
   proxy:
     external: true
 EOM
-
-#creating .env
-echo "creating .env"
-echo "ACME_PROVIDER='$DNS_PROVIDER'" >> .env
-echo "ACME_EMAIL='$EMAIL'" >> .env
-echo "DOMAIN='$DOMAIN'" >> .env
-echo "DYNU_API_KEY='$DNS_TOKEN'" >> .env
 
 #Depoying the traefik container
 echo "================================"
