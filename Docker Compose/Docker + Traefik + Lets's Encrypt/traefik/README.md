@@ -3,10 +3,13 @@
 
 # Usage
 > [!WARNING]
-> This script uses the dynamic DNS service provider [dynu](https://www.dynu.com). If you want to use another provider or your own domain, please read the documentation of traefik and change the script accordingly.
+> This script uses the dynamic DNS service provider [dynu](https://www.dynu.com). If you want to use another provider or your own domain, please read the traefik documentation and change the script accordingly.
 
 > [!IMPORTANT]
 > If you need to deploy mosquitto, traefik need to be configured differently: use the [deploy_traefik_mosquitto_dynu.sh](deploy_traefik_mosquitto_dynu.sh) instead.
+
+> [!WARNING]
+> Only change the '***USE_LETS_ENCRYPT_STAGING***' variable to 'false' when you can confirm you got a 'staging certificate' form Let’s Encrypt first. Let’s Encrypt provides rate limits to ensure fair usage by as many people as possible - more info [here](https://letsencrypt.org/docs/rate-limits/).
 
 + Create a folder for the traefik files 
   + ```mkdir traefik```
@@ -23,6 +26,3 @@
   + IP Address: xx.xx.xx.xx (ip of docker server)
 + Open traefik dashboard
   + https://traefik.YOUR-DOMAIN-COM
-
-> [!WARNING]
-> Only change the '***USE_LETS_ENCRYPT_STAGING***' variable to 'false' when you can confirm you got a 'staging certificate' form Let’s Encrypt first. Let’s Encrypt provides rate limits to ensure fair usage by as many people as possible - more info [here](https://letsencrypt.org/docs/rate-limits/).
