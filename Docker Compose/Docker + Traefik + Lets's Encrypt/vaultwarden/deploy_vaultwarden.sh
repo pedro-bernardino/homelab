@@ -53,9 +53,12 @@ networks:
 EOM
 
 #Depoying the vaultwarden container
+echo "================================"
 echo "Depoying the vaultwarden container"
+echo "vaultwarden.${DOMAIN}"
+echo "================================"
 sudo docker compose down
 sudo docker compose up -d --force-recreate
-sudo docker ps
-sudo docker logs --follow vaultwarden
+sudo docker ps -a --no-trunc --filter name=^/vaultwarden$
+sudo docker compose logs --follow
 

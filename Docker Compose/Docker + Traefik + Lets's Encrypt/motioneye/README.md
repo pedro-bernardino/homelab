@@ -17,3 +17,6 @@
   + IP Address: xx.xx.xx.xx (ip of docker server)
 + Open motionEye dashboard
   + https://motionEye.YOUR-DOMAIN-COM
+    + default login:
+      + user: admin
+      + pass: `<empty>`

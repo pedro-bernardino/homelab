@@ -142,13 +142,11 @@ services:
 EOM
 
 #Depoying the restic container
-echo ""
-echo "================================"
+echo "=============================="
 echo "Depoying the restic container"
-echo "================================"
-echo ""
+echo "   restic dont have a GUI"
+echo "=============================="
 sudo docker compose down
 sudo docker compose up -d --force-recreate
 sudo docker ps -a --no-trunc --filter name=^/restic$
-echo ""
 sudo docker compose logs --follow

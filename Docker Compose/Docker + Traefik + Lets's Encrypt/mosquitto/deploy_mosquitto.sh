@@ -120,7 +120,10 @@ networks:
 EOM
 
 # Depoying the mosquitto container
+echo "================================"
 echo "Depoying the mosquitto container"
+echo "   mosquitto dont have a GUI"
+echo "================================"
 sudo docker compose down
 sudo docker compose up -d --force-recreate
 
@@ -133,6 +136,6 @@ then
 fi
 
 # display logs
-sudo docker container ls -a
-sudo docker logs mosquitto --follow
+sudo docker ps -a --no-trunc --filter name=^/mosquitto$
+sudo docker compose logs --follow
 

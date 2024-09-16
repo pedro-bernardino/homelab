@@ -88,11 +88,13 @@ networks:
 EOM
 
 #Depoying the scrutiny container
+echo "================================"
 echo "Depoying the scrutiny container"
+echo "scrutiny.${DOMAIN}"
+echo "================================"
 sudo docker compose down
 sudo docker compose up -d --force-recreate
 sudo docker ps -a --no-trunc --filter name=^/scrutiny$
-echo ""
 sleep 3s
 sudo docker compose logs --follow
 

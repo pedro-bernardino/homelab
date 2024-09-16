@@ -88,10 +88,13 @@ networks:
 
 EOM
 
-#Depoying the authentik container
+#Depoying the nextcloud container
+echo "================================"
 echo "Depoying the nextcloud container"
+echo "nextcloud.${DOMAIN}"
+echo "================================"
 sudo docker compose down
 sudo docker compose up -d --force-recreate
-sudo docker ps
-sudo docker logs --follow nextcloud
+sudo docker ps -a --no-trunc --filter name=^/nextcloud$
+sudo docker compose logs --follow
 

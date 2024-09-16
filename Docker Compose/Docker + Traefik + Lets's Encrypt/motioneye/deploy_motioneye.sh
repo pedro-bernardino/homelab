@@ -59,17 +59,11 @@ networks:
 EOM
 
 #Depoying the motioneye container
-echo ""
 echo "================================"
 echo "Depoying the motioneye container"
 echo "motioneye.${DOMAIN}"
-echo "default login:"
-echo "user: admin"
-echo "pass: <empty>"
 echo "================================"
-echo ""
 sudo docker compose down
 sudo docker compose up -d --force-recreate
 sudo docker ps -a --no-trunc --filter name=^/motioneye$
-echo ""
 sudo docker compose logs --follow

@@ -134,9 +134,12 @@ networks:
 EOM
 
 #Depoying the authentik container
+echo "================================"
 echo "Depoying the authentik container"
+echo "authentik.${DOMAIN}"
+echo "================================"
 sudo docker compose down
 sudo docker compose up -d --force-recreate
-sudo docker ps
-sudo docker logs --follow authentik
+sudo docker ps -a --no-trunc --filter name=^/authentik$
+sudo docker compose logs --follow
 

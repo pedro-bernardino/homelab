@@ -57,8 +57,11 @@ networks:
 EOM
 
 #Depoying the heimdall container
+echo "================================"
 echo "Depoying the heimdall container"
+echo "heimdall.${DOMAIN}"
+echo "================================"
 sudo docker compose down
 sudo docker compose up -d --force-recreate
-sudo docker ps
-sudo docker logs --follow heimdall
+sudo docker ps -a --no-trunc --filter name=^/heimdall$
+sudo docker compose logs --follow

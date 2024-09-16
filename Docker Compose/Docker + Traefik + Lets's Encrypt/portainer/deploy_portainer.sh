@@ -65,9 +65,12 @@ networks:
     external: true
 EOM
 
-#Depoying the traefik container
+#Depoying the portainer container
+echo "================================"
 echo "Depoying the portainer container"
+echo "portainer.${DOMAIN}"
+echo "================================"
 sudo docker compose down
 sudo docker compose up -d --force-recreate
-sudo docker ps
-sudo docker logs --follow portainer
+sudo docker ps -a --no-trunc --filter name=^/portainer$
+sudo docker compose logs --follow

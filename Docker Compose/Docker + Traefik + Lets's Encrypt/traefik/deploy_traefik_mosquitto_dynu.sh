@@ -167,8 +167,11 @@ echo "DOMAIN='$DOMAIN'" >> .env
 echo "DYNU_API_KEY='$DNS_TOKEN'" >> .env
 
 #Depoying the traefik container
+echo "================================"
 echo "Depoying the traefik container"
+echo "traefik.${DOMAIN}"
+echo "================================"
 sudo docker compose down
 sudo docker compose up -d --force-recreate
-sudo docker ps
+sudo docker ps -a --no-trunc --filter name=^/traefik$
 sudo docker compose logs --follow

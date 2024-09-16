@@ -14,4 +14,4 @@ Watchtower will pull down your new image, gracefully shut down your existing con
   + ```sudo chmod +x deploy_watchtower.sh```
 + Run the script to deploy watchtower
   + ```./deploy_watchtower.sh```
-+ watchtower cont have a user interface.
++ watchtower don't have a user interface.

@@ -57,9 +57,11 @@ networks:
 EOM
 
 #Depoying the trilium container
+echo "================================"
 echo "Depoying the trilium container"
+echo "trilium.${DOMAIN}"
+echo "================================"
 sudo docker compose down
 sudo docker compose up -d --force-recreate
 sudo docker ps -a --no-trunc --filter name=^/trilium$
-echo ""
 sudo docker compose logs --follow
