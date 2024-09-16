@@ -33,6 +33,10 @@ Features:
 ## Notifications
 I use Telegram for notifications. Read the strutiny [documentation](https://github.com/AnalogJ/scrutiny?tab=readme-ov-file#notifications) for other services.
 
+Teste notifications:
++ ```sudo docker exec -it scrutiny bash```
++ ```curl -X POST http://localhost:8080/api/health/notify```
+  
 ## Disks data
 I use this container to monitor all my disk (HDDs and SSDs) on all my machines: Proxmox and Truenas.
 
