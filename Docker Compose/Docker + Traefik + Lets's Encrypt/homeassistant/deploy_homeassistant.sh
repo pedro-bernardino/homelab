@@ -59,7 +59,10 @@ echo "Stopping homeassistant container"
 sudo docker compose down
 
 #Depoying homeassistant container
-echo "Depoying homeassistant container"
+echo "================================"
+echo "Depoying the homeassistant container"
+echo "homeassistant.${DOMAIN}"
+echo "================================"
 sudo docker compose up -d --force-recreate
 
 if [ $(cat ./config/configuration.yaml | grep -c "use_x_forwarded_for") -eq 0 ]
